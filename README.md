@@ -1,3 +1,8 @@
 # Projektauftrag – Gruppe 1 „Schreibtischfunktion“ 
 
 Im Rahmen des Labors im Modul Softwaretechnik und mobile Systeme werden Wir, Gruppe 1, das Projekt „Schreibtischfunktion“ umsetzen. Das Projekt umfasst die Erweiterung der ursprünglichen Zettelansicht auf eine selbstorganisierte Schreibtischfunktion. Diese Schreibtischfunktion beinhaltet ein GUI, welches dem Nutzer ermöglicht per Knopfdruck zwischen der originalen und der neu entwickelten Ansicht zu wechseln und damit die graphische Darstellung anzupassen. Die Implementierung der „Schreibtischfunktion“ deckt die Erstellung von einem unendlichen Canvas, die Möglichkeit zur Unterteilung des Canvas in Klassen und die Einordnung der Zettel in die erstellten Klassen sowie die Visualisierung der verschiedenen Verknüpfungsarten der Zettel ab. Je nach Art der Zettel werden verschiedene graphische Darstellungen entwickelt. Wir werden das Projekt bis zum 13.01.2027 mit der Durchführung der Abschlusspräsentation beenden. Der Arbeitsaufwand beträgt 4 SWS pro Person. Da das Projekt im Rahmen einer Vorlesung stattfindet, werden zunächst keine zusätzlichen finanziellen Kosten eingeplant. Die wichtigsten Meilensteine gliedern sich in: eine Anforderungsanalyse, Planung & Konzeption, Implementierung, Testphase, Abschluss und Dokumentation sowie die Abschlusspräsentation am Enddatum. Risiken, die mit hoher Wahrscheinlichkeit auftreten können, sind technische Schwierigkeiten, zeitliche Verzögerung, suboptimal definierte Anforderungen und mangelhafte Kommunikation. 
+
+
+
+
+Licensed under the EUPL
