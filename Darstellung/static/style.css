@@ -1,3 +1,10 @@
 body{
     font-size: large;
 }
+
+.headline{
+    background-color: black;
+    border-bottom: 5px, block, purple;
+    padding-left: 0%;
+    color: white;
+}
