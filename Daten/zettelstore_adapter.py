@@ -3,10 +3,9 @@ import config
 
 
 class ZettelstoreFehler(Exception):
+     pass 
     
-
-
-    def alle_zettel_laden():
+def alle_zettel_laden():
         
         try:
             antwort = requests.get(f"{config.ZETTELSTORE_URL}/z", timeout=5)
