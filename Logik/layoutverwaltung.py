@@ -1,4 +1,4 @@
-from Daten import ((zettelstore_adapter))
+from Daten import zettelstore_adapter
 
 DatenquelleFehler = zettelstore_adapter.ZettelstoreFehler
 
