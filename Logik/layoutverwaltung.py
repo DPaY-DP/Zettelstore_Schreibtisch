@@ -1,25 +1,18 @@
-import requests
+from Daten import ((zettelstore_adapter))
 
-import config
+DatenquelleFehler = zettelstore_adapter.ZettelstoreFehler
+
+SPALTEN = 5
+ABSTAND_X = 220
+ABSTAND_Y = 120
 
 
-class ZettelstoreFehler(Exception):
-    
+def zettel_fuer_schreibtisch():
+    """Liefert alle Zettel mit Position: {"id", "titel", "x", "y"}."""
+    zettel = zettelstore_adapter.alle_zettel_laden()
+    zettel.sort(key=lambda z: z["id"])
 
-
-    def alle_zettel_laden():
-    
-        try:
-            antwort = requests.get(f"{config.ZETTELSTORE_URL}/z", timeout=5)
-            antwort.raise_for_status()
-        except requests.RequestException as fehler:
-            raise ZettelstoreFehler(str(fehler)) from fehler
-
-        zettel = []
-        for zeile in antwort.text.splitlines():
-            if len(zeile) < 14:
-                continue
-            zettel.append({"id": zeile[:14], "titel": zeile[15:]})
-        return zettel
-
-    
+    for nummer, z in enumerate(zettel):
+        z["x"] = (nummer % SPALTEN) * ABSTAND_X
+        z["y"] = (nummer // SPALTEN) * ABSTAND_Y
+    return zettel
