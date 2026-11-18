@@ -15,9 +15,10 @@
 {{ fehler }}</p>
 {% endif %}
 <h1 class="headline">Hier stehen alle Zettel</h1>
+<a href="{{ alte_ansicht_url }}">Zur alten Ansicht</a>
 <ul>
     {% for i in zettel %}
-        <li>{{ i.id }} +++ {{ i.titel }}</li>
+        <li>{{ i.id }} +++ <a href="{{ i.link }}">{{ i.titel }}</a></li>
     {% endfor %}
 </ul>
 </body>

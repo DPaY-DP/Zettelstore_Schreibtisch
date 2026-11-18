@@ -17,5 +17,5 @@ def startseite():
         "index.html",
         zettel=zettel,
         fehler=fehler,
-        #alte_ansicht_url=config.ZETTELSTORE_URL,
+        alte_ansicht_url=layoutverwaltung.link_alte_ansicht(),
     )
