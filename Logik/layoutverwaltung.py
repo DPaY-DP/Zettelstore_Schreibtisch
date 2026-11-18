@@ -16,3 +16,7 @@ def zettel_fuer_schreibtisch():
         z["x"] = (nummer % SPALTEN) * ABSTAND_X
         z["y"] = (nummer // SPALTEN) * ABSTAND_Y
     return zettel
+
+
+def anzahl_zettel_ermitteln(zettel):
+    return len(zettel)

@@ -1,5 +1,6 @@
+
 <!doctype html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -8,23 +9,33 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Schreibtisch</title>
 </head>
-<script src="{{ url_for('static', filename='canvas.js') }}"></script>
+
 <body>
 
 {% if fehler %}
     <p>Zettelstore ist aktuell nicht erreichbar.
-{{ fehler }}</p>
-{% endif %}
-<h1 class="headline">Hier stehen alle Zettel</h1>
+    {{ fehler }}</p>
+{% else %}
+    <h1 class="headline">Hier stehen alle Zettel</h1>
 
-<div class="header__search-container">
-            <input type="text" id="search-bar" class="header__search-input" placeholder="Search resources..." autocomplete="off" />
-            <span class="header__search-badge">Ctrl+K</span>
-          </div>
-<ul>
-    {% for i in zettel %}
-        <li id='{{ i.id }}'>{{ i.id }} +++ {{ i.titel }}</li>
-    {% endfor %}
-</ul>
+    <p>Anzahl der Zettel: {{ anzahl_zettel }}</p>
+
+    <div class="header__search-container">
+        <input type="text" id="search-bar" class="header__search-input" placeholder="Search resources..." autocomplete="off" />
+        <span class="header__search-badge">Ctrl+K</span>
+    </div>
+
+    {% if zettel %}
+        <ul>
+            {% for i in zettel %}
+                <li id="{{ i.id }}">{{ i.id }} +++ {{ i.titel }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Keine Zettel vorhanden.</p>
+    {% endif %}
+{% endif %}
+
+<script src="{{ url_for('static', filename='canvas.js') }}"></script>
 </body>
 </html>
