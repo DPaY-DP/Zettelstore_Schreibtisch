@@ -24,12 +24,14 @@
         <input type="text" id="search-bar" class="header__search-input" placeholder="Search resources..." autocomplete="off" />
         <span class="header__search-badge">Ctrl+K</span>
     </div>
-
+    <br>
+    <div class="drop_class" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)"></div>
+    <div class="drop_class" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)"></div>
     {% if zettel %}
     
         <ul>
             {% for i in zettel %}
-                <li>{{ i.id }} +++ <a href="{{ i.link }}">{{ i.titel }} </a>+++ {{ i.klasse }}</li>
+                <li draggable="true" ondragstart="dragstartHandler(event)" id="{{i.id}}">{{ i.id }} +++ <a id="{{i.link}}" href="{{ i.link }}" draggable="true" ondragstart="dragstartHandler(event)">{{ i.titel }} </a>+++ {{ i.klasse }}</li>
             {% endfor %}
         </ul>
     {% else %}

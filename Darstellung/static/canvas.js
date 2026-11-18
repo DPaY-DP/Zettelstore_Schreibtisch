@@ -1,3 +1,29 @@
+function dragstartHandler(ev) {
+  try
+  {
+    ev.dataTransfer.setData("zettel", ev.target.id);
+  }
+  catch (error)
+  {
+    console.error(error);
+  }
+}
+
+function dragoverHandler(ev) {
+  ev.preventDefault();
+}
+
+function dropHandler(ev) {
+    const data = ev.dataTransfer.getData("zettel");
+    const element = document.getElementById(data);
+
+    if (!element) {
+      console.warn("Kein Element für ID gefunden:", data);
+      return;
+    }
+    ev.target.appendChild(element);
+}
+
 function handleSearch(e) {
   const term = e.target.value.toLowerCase().trim();
   const items = document.querySelectorAll("ul li");

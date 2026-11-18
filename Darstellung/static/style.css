@@ -58,3 +58,10 @@ body{
   pointer-events: none;
   flex-shrink: 0;
 }
+
+.drop_class{
+  width: 360px;
+  height: 70px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+}
