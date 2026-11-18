@@ -58,6 +58,27 @@ body{
   pointer-events: none;
   flex-shrink: 0;
 }
+div1 {
+  width: 350px;
+  height: 70px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+   position: relative;
+}
+
+.resize-handle {
+    width: 12px;
+    height: 12px;
+
+    background-color: blue;
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    cursor: se-resize;
+}
+
 
 .drop_class{
   width: 360px;

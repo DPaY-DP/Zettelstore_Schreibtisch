@@ -55,6 +55,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+function groesse_aendern(id){
+
+    let element = document.getElementById(id);
+
+    let breite = element.offsetWidth;
+    let hoehe = element.offsetHeight;
+
+    element.style.width = (breite + 20) + "px";
+    element.style.height = (hoehe + 20) + "px";
+}
+
 
 function toggleSort() {
   var zettel = document.getElementById('zettelliste');

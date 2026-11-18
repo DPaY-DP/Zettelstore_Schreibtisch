@@ -29,6 +29,7 @@
     <br>
     <div class="drop_class" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)"></div>
     <div class="drop_class" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)"></div>
+    <div onclick="groesse_aendern('div1')" class="resize-handle" id={{zettel.id}}></div>
     {% if zettel %}
 
 <button id="sortBtn" onclick="toggleSort()">ID: aufsteigend/absteigend</button>
@@ -48,6 +49,8 @@
         <p>Keine Zettel vorhanden.</p>
     {% endif %}
 {% endif %}
+
+</div>
 
 </body>
 <script src="{{ url_for('static', filename='canvas.js') }}"></script>
