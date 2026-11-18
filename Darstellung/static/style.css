@@ -8,3 +8,53 @@ body{
     padding-left: 0%;
     color: white;
 }
+
+.is-hidden {
+  display: none;
+}
+
+.header__search-container {
+  position: relative;
+  width: 240px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  background-color: black;
+  border: 1px solid gray;
+  border-radius: 1px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease;
+}
+
+.header__search-container:focus-within {
+  border-color: blue;
+  outline: 1px solid blue;
+}
+
+.header__search-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+  font-size: 0.85rem;
+  font-family: inherit;
+  padding: 0;
+}
+
+.header__search-input::placeholder {
+  color: #aaa;
+}
+
+.header__search-badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  background-color: grey;
+  color: white;
+  padding: 1px 4px;
+  border-radius: 3px;
+  border: 1px solid black;
+  pointer-events: none;
+  flex-shrink: 0;
+}

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Schreibtisch</title>
 </head>
+<script src="{{ url_for('static', filename='canvas.js') }}"></script>
 <body>
 
 {% if fehler %}
@@ -15,9 +16,14 @@
 {{ fehler }}</p>
 {% endif %}
 <h1 class="headline">Hier stehen alle Zettel</h1>
+
+<div class="header__search-container">
+            <input type="text" id="search-bar" class="header__search-input" placeholder="Search resources..." autocomplete="off" />
+            <span class="header__search-badge">Ctrl+K</span>
+          </div>
 <ul>
     {% for i in zettel %}
-        <li>{{ i.id }} +++ {{ i.titel }}</li>
+        <li id='{{ i.id }}'>{{ i.id }} +++ {{ i.titel }}</li>
     {% endfor %}
 </ul>
 </body>
