@@ -13,9 +13,12 @@ def startseite():
     except layoutverwaltung.DatenquelleFehler as e:
         zettel, fehler = [], str(e)
 
+    anzahl_zettel = layoutverwaltung.anzahl_zettel_ermitteln(zettel)
+
     return render_template(
         "index.html",
         zettel=zettel,
         fehler=fehler,
         alte_ansicht_url=layoutverwaltung.link_alte_ansicht(),
+        anzahl_zettel=anzahl_zettel,
     )
