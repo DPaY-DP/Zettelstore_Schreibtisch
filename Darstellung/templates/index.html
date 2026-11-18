@@ -17,7 +17,7 @@
     {{ fehler }}</p>
 {% else %}
     <h1 class="headline">Hier stehen alle Zettel</h1>
-
+    <a href="{{ alte_ansicht_url }}">Zur alten Ansicht</a>  
     <p>Anzahl der Zettel: {{ anzahl_zettel }}</p>
 
     <div class="header__search-container">
@@ -26,21 +26,16 @@
     </div>
 
     {% if zettel %}
+    
         <ul>
             {% for i in zettel %}
-                <li id="{{ i.id }}">{{ i.id }} +++ {{ i.titel }}</li>
+                <li>{{ i.id }} +++ <a href="{{ i.link }}">{{ i.titel }}</a></li>
             {% endfor %}
         </ul>
     {% else %}
         <p>Keine Zettel vorhanden.</p>
     {% endif %}
 {% endif %}
-<h1 class="headline">Hier stehen alle Zettel</h1>
-<a href="{{ alte_ansicht_url }}">Zur alten Ansicht</a>
-<ul>
-    {% for i in zettel %}
-        <li>{{ i.id }} +++ <a href="{{ i.link }}">{{ i.titel }}</a></li>
-    {% endfor %}
-</ul>
+
 </body>
 </html>

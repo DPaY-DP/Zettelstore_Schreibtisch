@@ -26,3 +26,6 @@ def link_alte_ansicht(zettel_id=None):
         return adresse 
     else: 
         return f"{adresse}/h/{zettel_id}"
+    
+def anzahl_zettel_ermitteln(zettel):
+    return len(zettel)
