@@ -55,3 +55,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+function toggleSort() {
+  var zettel = document.getElementById('zettelliste');
+  Array.from(zettel.children).reverse().forEach(li => zettel.appendChild(li))
+}
