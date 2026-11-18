@@ -1,11 +1,25 @@
-"""
-Klassenverwaltung der Schreibtischansicht.
+VERFUEGBARE_KLASSEN = ["Projekt", "Aufgabe", "Notiz", "System"]
+_zettel_zuordnungen = {}
 
-Dieses Modul ist für das Erstellen, Umbenennen und Löschen
-von Klassen sowie für die Zuordnung und das Entfernen von
-Zetteln zu Klassen verantwortlich.
+def klasse_zuordnen(zettel_id, klassenname):
+    if not zettel_id or klassenname not in VERFUEGBARE_KLASSEN:
+        return False
+    _zettel_zuordnungen[zettel_id] = klassenname
+    return True
 
-Bezug zu den funktionalen Anforderungen:
-- FA05: Klassen anlegen, umbenennen und löschen.
-- FA06: Zettel Klassen zuordnen und Zuordnungen entfernen.
-"""
+def klasse_entfernen(zettel_id):
+    if zettel_id in _zettel_zuordnungen:
+        del _zettel_zuordnungen[zettel_id]
+        return True
+    return False
+
+def klassen_anwenden(zettel_liste):
+    for zettel in zettel_liste:
+        z_id = zettel.get("id", "")
+        if z_id in _zettel_zuordnungen:
+            zettel["klasse"] = _zettel_zuordnungen[z_id]
+        elif z_id.startswith("0000"):
+            zettel["klasse"] = "System"
+        else: zettel["klasse"] = None
+    return zettel_liste
+
