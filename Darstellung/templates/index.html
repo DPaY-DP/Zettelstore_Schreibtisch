@@ -1,6 +1,5 @@
-
 <!doctype html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -9,49 +8,49 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Schreibtisch</title>
 </head>
-
+<script src="{{ url_for('static', filename='canvas.js') }}"></script>
 <body>
 
 {% if fehler %}
     <p>Zettelstore ist aktuell nicht erreichbar.
     {{ fehler }}</p>
+{{ fehler }}</p>
 {% else %}
     <h1 class="headline">Hier stehen alle Zettel</h1>
-    <a href="{{ alte_ansicht_url }}">Zur alten Ansicht</a>  
+    <a href="{{ alte_ansicht_url }}">Zur alten Ansicht</a>
     <p>Anzahl der Zettel: {{ anzahl_zettel }}</p>
 
     <div class="header__search-container">
         <input type="text" id="search-bar" class="header__search-input" placeholder="Search resources..." autocomplete="off" />
         <span class="header__search-badge">Ctrl+K</span>
     </div>
-
-
-    <br>
-    <div class="drop_class" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)"></div>
-    <div class="drop_class" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)"></div>
-    <div onclick="groesse_aendern('div1')" class="resize-handle" id={{zettel.id}}></div>
-    {% if zettel %}
-
-<button id="sortBtn" onclick="toggleSort()">ID: aufsteigend/absteigend</button>
-<div id="zettelBox" style="position:relative;"></div>
-
-<ul id="zettelliste">
-    {% for i in zettel %}
-        <li id='{{ i.id }}'>{{ i.id }} +++ {{ i.titel }}</li>
-    {% endfor %}
-</ul>
-    <div class="header__search-container">
-        <input type="text" id="search-bar" class="header__search-input" placeholder="Search resources..." autocomplete="off" />
-        <span class="header__search-badge">Ctrl+K</span>
+    <div class="schreibtischBoard">
+        {% for z in zettel %}
+            {% if z.x is defined and z.x >= 0 %}
+                {% set xPosition = z.x %}
+            {% else %}
+                {% set xPosition = 0 %}
+            {% endif %}
+            {% if z.y is defined and z.y >= 0 %}
+                {% set yPosition = z.y %}
+            {% else %}
+                {% set yPosition = 0 %}
+            {% endif %}
+            <div class="zettelKarte" style="left: {{ xPosition }}px; top: {{ yPosition }}px;">
+                <div class="zettelInhalt">
+                    <div class="zettelID">
+                        <a href="{{ z.link }}">{{ z.id }}</a>
+                    </div>
+                    <div class="zettelTitel">
+                        {{ z.titel }}
+                    </div>
+                    <div class="zettelKlasse">
+                        {{ z.klasse }}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
     </div>
-                <li draggable="true" ondragstart="dragstartHandler(event)" id="{{i.id}}">{{ i.id }} +++ <a id="{{i.link}}" href="{{ i.link }}" draggable="true" ondragstart="dragstartHandler(event)">{{ i.titel }} </a>+++ {{ i.klasse }}</li>
-    {% else %}
-        <p>Keine Zettel vorhanden.</p>
-    {% endif %}
 {% endif %}
-
-</div>
-
 </body>
-<script src="{{ url_for('static', filename='canvas.js') }}"></script>
 </html>
